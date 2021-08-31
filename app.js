@@ -1,5 +1,4 @@
 const express = require ('express');
-const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
 
 const userRoutes = require('./routes/user');
@@ -13,7 +12,10 @@ app.use((req, res, next) => {
   next();
 });
 
-app.use(bodyParser.json());
+
+app.use(express.json());
+app.use(express.urlencoded({extended: true}));
+
 
 mongoose.connect('mongodb+srv://Janouy:projet1@cluster0.mlmju.mongodb.net/myFirstDatabase?retryWrites=true&w=majority',
   { useNewUrlParser: true,
@@ -21,10 +23,7 @@ mongoose.connect('mongodb+srv://Janouy:projet1@cluster0.mlmju.mongodb.net/myFirs
   .then(() => console.log('Connexion à MongoDB réussie !'))
   .catch(() => console.log('Connexion à MongoDB échouée !'));
 
-app.use('/api/auth', userRoutes);
 
-app.use((req, res) => {
-    res.json({message: 'requete reçue'});
-});
+app.use('/api/auth', userRoutes);
 
 module.exports = app;
