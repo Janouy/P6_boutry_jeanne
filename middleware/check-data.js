@@ -1,1 +1,0 @@
-// empecher des données utilisateurs d'etre vides //
