@@ -21,7 +21,7 @@ exports.likeSauce = (req, res, next) => {
 	const userId = req.body.userId;
 	const like = req.body.like;
 	console.log(req.body.like);
-	Sauce.findOne({ _id: req.params.id })
+	Sauce.findOne({ _id: req.params.id})
 	.then(sauce => { 
 		if(like == 1){
 			Sauce.updateOne({ _id: req.params.id }, {$push: {usersLiked: userId}, $inc: {likes: +1}})
@@ -51,7 +51,7 @@ exports.modifySauce = (req, res, next) => {
 		...JSON.parse(req.body.sauce),
 		imageUrl: `${req.protocol}://${req.get('host')}/images/${req.file.filename}`
 	} : {...req.body};
-	Sauce.updateOne({ _id: req.params.id}, { ...sauceObject, _id: req.params.id})
+	Sauce.updateOne({ _id: req.params.id}, {...sauceObject, _id: req.params.id})
 	.then(() => res.status(200).json({ message: 'Objet modifié'}))
 	.catch(error => res.status(403).json({message: 'unauthorized request'}));
 };
