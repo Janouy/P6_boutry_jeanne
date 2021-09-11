@@ -9,13 +9,18 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "base-64": "^1.0.0",
     "bcrypt": "^5.0.1",
     "body-parser": "^1.19.0",
     "crypto": "^1.0.1",
+    "crypto-js": "^4.1.1",
     "express": "^4.17.1",
     "jsonwebtoken": "^8.5.1",
+    "maskdata": "^1.1.6",
     "mongoose": "^6.0.2",
     "mongoose-unique-validator": "^2.0.3",
-    "multer": "^1.4.3"
+    "multer": "^1.4.3",
+    "ncrypt-js": "^1.1.0",
+    "simple-crypto-js": "^3.0.0"
   }
 }
