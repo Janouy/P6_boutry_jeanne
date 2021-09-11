@@ -1,10 +1,13 @@
+// import du package HTTP natif de Node pour créer un serveur//
 const http = require('http');
+//import du fichier app.js//
 const app = require('./app');
 
-
+// Configuration du server pour qu'il écoute le port 3000//
 const port = 3000;
 app.set('port', port);
 
+//recherche et gère les différentes erreurs//
 const errorHandler = error => {
   if (error.syscall !== 'listen') {
     throw error;
@@ -25,8 +28,10 @@ const errorHandler = error => {
   }
 };
 
+// cette fonction reçoit les objets du fichier app.js en tant qu'argument//
 const server = http.createServer(app);
 
+//cet écouteur d'évènements consigne le port nommé sur lequel le server s'execute//
 server.on('error', errorHandler);
 server.on('listening', () => {
   const address = server.address();

@@ -1,5 +1,7 @@
 const multer = require ('multer');
 
+/*ce middleware permet d'enregistrer les images des utilisateurs dans le fichier 'images', 
+oblige à utiliser le nom d'origine en ajoutant une timestamp au nom du fichier, et résoud l'extenson du fichier, uniquement pour les fichiers image*/
 const MIME_TYPES = {
     'image/jpg' : 'jpg',
     'image/jpeg': 'jpg',

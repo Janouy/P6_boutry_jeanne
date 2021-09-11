@@ -4,12 +4,13 @@ const base64 = require('base-64');
 
 const User = require('../models/user');
 
+//stockage de l'email encodé//
 let encodedEmail;
 
+//permet à un utilisateur de s'enregistré dans la bdd, l'email est masqué et le mot de passe hashé//
 exports.signup = (req, res, next) => {
   let encoded = base64.encode(req.body.email);
   encodedEmail = encoded;
-  console.log(encoded);
   bcrypt.hash(req.body.password, 10)
   .then(hash => {
     const user = new User({
@@ -23,6 +24,7 @@ exports.signup = (req, res, next) => {
   .catch(error => res.status(500).json({ error }));
 };
 
+//permet à un utilisateur enregistré de se connecter//
 exports.login = (req, res, next) => {
   let loginEncodedEmail = base64.encode(req.body.email);
     User.findOne({email: loginEncodedEmail})

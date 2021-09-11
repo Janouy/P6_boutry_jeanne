@@ -1,3 +1,4 @@
+//ce middleware ne permet pas l'envoi de données 'Sauce' avec que des espaces//
 module.exports = (req, res, next) =>{
     try {
         const dataName = req.body.name.trim();
