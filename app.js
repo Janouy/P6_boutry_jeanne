@@ -3,6 +3,11 @@ const express = require ('express');
 const mongoose = require('mongoose');
 const path = require('path');
 
+//import du fichier des variables d'environnement//
+const dotenv = require("dotenv");
+
+dotenv.config();
+
 //ajout des routeurs sauce et user//
 const sauceRoutes = require('./routes/sauce');
 const userRoutes = require('./routes/user');
@@ -18,7 +23,7 @@ app.use((req, res, next) => {
 });
 
 //connection avec monggose de la bdd MongoDb//
-mongoose.connect('mongodb+srv://Janouy:projet1@cluster0.mlmju.mongodb.net/myFirstDatabase?retryWrites=true&w=majority',
+mongoose.connect('mongodb+srv://' + process.env.DB_ID + ':' + process.env.DB_PASSWORD + '@' + process.env.DB_URL,
   { useNewUrlParser: true,
     useUnifiedTopology: true })
   .then(() => console.log('Connexion à MongoDB réussie !'))

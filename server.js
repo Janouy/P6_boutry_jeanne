@@ -3,8 +3,13 @@ const http = require('http');
 //import du fichier app.js//
 const app = require('./app');
 
+//import du fichier des variables d'environnement//
+const dotenv = require("dotenv");
+
+dotenv.config();
+
 // Configuration du server pour qu'il écoute le port 3000//
-const port = 3000;
+const port = process.env.PORT;
 app.set('port', port);
 
 //recherche et gère les différentes erreurs//
