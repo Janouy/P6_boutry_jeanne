@@ -1,0 +1,12 @@
+Bonjour et bienvenue dans l'API du projet Piiquante, afin de pourvoir l'utiliser, merci de suivre les indications ci dessous:
+
+- ajouter un fichier .env dans la racine du projet et ajouter les éléments ci-dessous dans le fichier afin d'établir une connexion avec le port choisi,
+ ainsi qu'avec la base de données MongoDB.
+
+PORT= port 
+DB_PASSWORD = 'mot de passe MongoDB'
+DB_ID = 'ID MongoDB'
+DB_URL = 'URL Mongo DB'
+
+- lancer 'npm install' depuis la console
+- lancer 'nodemon server' depuis la console
